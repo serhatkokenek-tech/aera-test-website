@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The trusted consulting partner for cross-border expansion and resilient supply chains.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        an:    '#07091C',
+        'an-l':'#0D1530',
+        'an-c':'#0A1228',
+        ag:    '#C9A84C',
+        'ag-l':'#E8CC7A',
+        'ag-d':'#9E7D2C',
+        am:    '#7A8FAD',
+      },
+      fontFamily: {
+        display: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{background:#07091C;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:hidden;margin:0}
+
+/* ── grain ── */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── nav ── */
+nav{background:rgba(7,9,28,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+
+/* ── gold glow ── */
+.gold-glow{box-shadow:0 0 40px rgba(201,168,76,.18),0 0 80px rgba(201,168,76,.08)}
+
+/* ── ring ── */
+.ring-wrap{position:relative;width:420px;height:420px;flex-shrink:0}
+.ring-wrap::before{content:'';position:absolute;inset:-80px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.18) 0%,transparent 65%);pointer-events:none}
+.ring-disk{position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,
+    #1a3060 0deg,#2a4a8a 40deg,
+    #c9a84c 70deg,#e8cc80 90deg,#d4b055 105deg,
+    #c9a84c 125deg,#2a4a88 155deg,
+    #1a3060 190deg,#0c1e40 225deg,
+    #060d1c 260deg,#0f1e3a 295deg,
+    #1a3060 325deg,#1a3060 360deg);
+  transform:perspective(800px) rotateX(28deg) rotateY(-10deg);
+  box-shadow:0 0 90px rgba(201,168,76,.25),0 0 200px rgba(201,168,76,.1);
+  animation:ring-float 5s ease-in-out infinite}
+.ring-hole{position:absolute;inset:27%;border-radius:50%;
+  background:radial-gradient(circle at 38% 38%,#0d1a35,#050a1a);
+  box-shadow:inset 0 0 30px rgba(0,0,0,.95),inset 0 0 12px rgba(201,168,76,.08)}
+.ring-sheen{position:absolute;top:13%;left:22%;width:33%;height:16%;
+  background:rgba(255,255,255,.13);border-radius:50%;
+  transform:rotate(-22deg);filter:blur(5px)}
+@keyframes ring-float{
+  0%,100%{transform:perspective(800px) rotateX(28deg) rotateY(-10deg) translateY(0)}
+  50%{transform:perspective(800px) rotateX(28deg) rotateY(-10deg) translateY(-14px)}}
+
+/* ── service list ── */
+.svc{display:flex;align-items:center;justify-content:space-between;
+  padding:15px 0;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;
+  transition:color .2s}
+.svc:hover{color:#C9A84C}
+.svc:last-child{border-bottom:none}
+.arr{display:inline-block;transition:transform .2s}
+.svc:hover .arr{transform:translateX(5px)}
+
+/* ── outcome cards ── */
+.o-card{position:relative;overflow:hidden;flex-shrink:0;width:420px;height:290px}
+.o-card .overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 45%,rgba(0,0,0,.1) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+
+/* ── insight cards ── */
+.ins-card img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .4s}
+.ins-card:hover img{transform:scale(1.04)}
+
+/* ── section nav arrows ── */
+.s-arr{width:44px;height:44px;border:1px solid rgba(201,168,76,.3);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s;background:transparent;color:rgba(201,168,76,.7)}
+.s-arr:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.6);color:#C9A84C}
+.s-arr:focus-visible{outline:2px solid rgba(201,168,76,.5);outline-offset:2px}
+.s-arr:active{background:rgba(201,168,76,.18)}
+
+/* ── scroll reveal ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s}
+.rv.on{opacity:1;transform:none}
+
+/* ── CTA section ── */
+.cta-bg{background:linear-gradient(135deg,#080c20 0%,#131e40 45%,#080c20 100%)}
+
+/* ── mobile menu ── */
+.mob{display:none;position:fixed;inset:0;background:#07091c;z-index:300;
+  flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mob.open{display:flex}
+
+/* scrollbar hide */
+.no-sb::-webkit-scrollbar{display:none}
+.no-sb{-ms-overflow-style:none;scrollbar-width:none}
+
+/* nav underline hover */
+.nl{position:relative;padding-bottom:2px}
+.nl::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:#C9A84C;transition:width .25s}
+.nl:hover::after{width:100%}
+
+/* gold dot */
+.gdot{width:6px;height:6px;background:#C9A84C;border-radius:50%;flex-shrink:0}
+
+footer{background:#050811;border-top:1px solid rgba(255,255,255,.06)}
+
+/* logo badge */
+.logo-badge{background:#fff;border-radius:6px;padding:4px 10px;line-height:0;display:inline-flex;align-items:center}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+<nav class="fixed top-0 w-full z-50">
+  <div class="max-w-[1380px] mx-auto px-6 flex items-center h-[70px] gap-10">
+
+    <a href="#" class="flex-shrink-0">
+      <img src="Brand_Assets/aera-logo.png" style="height:34px;width:auto;display:block" alt="AERA">
+    </a>
+
+    <div class="hidden lg:flex items-center gap-7 flex-1">
+      <a href="#" class="nl text-[13px] text-white/70 hover:text-white transition-colors font-display font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40">About</a>
+      <a href="#community" class="nl text-[13px] text-white/70 hover:text-white transition-colors font-display font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40">Services</a>
+      <a href="#resources" class="nl text-[13px] text-white/70 hover:text-white transition-colors font-display font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40">Resources</a>
+      <a href="#events" class="nl text-[13px] text-white/70 hover:text-white transition-colors font-display font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40">Events</a>
+    </div>
+
+    <div class="ml-auto flex items-center gap-5">
+      <button class="hidden lg:flex text-white/45 hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:scale-95" aria-label="Search">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <a href="#join" class="bg-[#C9A84C] text-[#07091C] text-[13px] font-bold font-display px-5 py-2.5 hover:bg-[#E8CC7A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:bg-[#9E7D2C]">Contact Us</a>
+      <button class="lg:hidden text-white/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40" aria-label="Menu" onclick="document.getElementById('mob').classList.toggle('open')">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mob" class="mob">
+  <button onclick="document.getElementById('mob').classList.remove('open')" class="absolute top-6 right-6 text-white/60 hover:text-white" aria-label="Close">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <a href="#" onclick="document.getElementById('mob').classList.remove('open')" class="text-3xl font-black font-display text-white hover:text-[#C9A84C] transition-colors">About</a>
+  <a href="#community" onclick="document.getElementById('mob').classList.remove('open')" class="text-3xl font-black font-display text-white hover:text-[#C9A84C] transition-colors">Service</a>
+  <a href="#resources" onclick="document.getElementById('mob').classList.remove('open')" class="text-3xl font-black font-display text-white hover:text-[#C9A84C] transition-colors">Resources</a>
+  <a href="#events" onclick="document.getElementById('mob').classList.remove('open')" class="text-3xl font-black font-display text-white hover:text-[#C9A84C] transition-colors">Events</a>
+  <a href="#join" onclick="document.getElementById('mob').classList.remove('open')" class="mt-6 bg-[#C9A84C] text-[#07091C] font-bold font-display px-10 py-3.5 text-lg">Contact Us</a>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="min-h-screen bg-[#07091C] flex flex-col pt-[70px] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[800px] h-[800px] pointer-events-none" style="background:radial-gradient(ellipse at top right,rgba(201,168,76,.12) 0%,transparent 68%)"></div>
+  <div class="absolute bottom-1/4 left-[-100px] w-[500px] h-[500px] pointer-events-none" style="background:radial-gradient(ellipse,rgba(201,168,76,.04) 0%,transparent 70%)"></div>
+
+  <div class="max-w-[1380px] mx-auto px-6 flex-1 flex flex-col justify-center py-20">
+    <div class="flex items-center gap-12 xl:gap-20">
+      <!-- Text -->
+      <div class="flex-1 max-w-[600px]">
+        <div class="inline-flex items-center gap-2 mb-7">
+          <div class="gdot"></div>
+          <span class="text-[11px] tracking-[.22em] text-[#C9A84C]/80 uppercase font-semibold font-display">A New Era of Global Business Growth</span>
+        </div>
+        <h1 class="font-black leading-[1.1] tracking-[-0.03em] mb-7 font-display">
+          <span class="block text-[32px] text-white">The trusted consulting</span>
+          <span class="block text-[32px] text-white">partner for cross-border</span>
+          <span class="block text-[32px] text-[#C9A84C]">expansion and resilient supply chains.</span>
+        </h1>
+        <p class="text-[15px] text-white/50 leading-[1.8] mb-9 max-w-[480px]">
+          Your trusted guide to entering the U.S. market and building reliable global supply chains. We simplify complex trade rules, company setup, and local partnerships so you can scale with confidence.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#join" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#07091C] bg-[#C9A84C] px-7 py-3.5 hover:bg-[#E8CC7A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:bg-[#9E7D2C]">
+            Contact Us
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#resources" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-white border border-white/25 px-7 py-3.5 hover:border-[#C9A84C]/50 hover:bg-[#C9A84C]/5 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:bg-white/10">
+            Explore Resources
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Ring graphic -->
+      <div class="hidden lg:flex flex-1 items-center justify-center">
+        <div class="ring-wrap">
+          <div class="ring-disk">
+            <div class="ring-hole"></div>
+            <div class="ring-sheen"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="border-t border-white/[0.07] bg-[#050811]/60">
+    <div class="max-w-[1380px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/[0.07]">
+        <div class="py-9 px-2 md:px-8 first:pl-0">
+          <div class="text-[46px] font-black font-display text-[#C9A84C] leading-none mb-2">DECIDE</div>
+          <div class="text-[13px] text-white/45 leading-snug">Choosing the Right<br>Business Structure</div>
+        </div>
+        <div class="py-9 px-2 md:px-8">
+          <div class="text-[46px] font-black font-display text-[#C9A84C] leading-none mb-2">PARTNER WITH</div>
+          <div class="text-[13px] text-white/45 leading-snug">Strategic Partnerships<br>&amp; Supply Chain</div>
+        </div>
+        <div class="py-9 px-2 md:px-8 last:pr-0">
+          <div class="text-[46px] font-black font-display text-[#C9A84C] leading-none mb-2">COMPLY</div>
+          <div class="text-[13px] text-white/45 leading-snug">Trade Compliance<br>&amp; Consulting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHY JOIN + WHAT WE OFFER ═══════════════════════ -->
+<section id="community" class="bg-[#07091C]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+
+      <div class="bg-[#0D1530] px-10 xl:px-14 py-16 rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-8">Our Philosophy</p>
+        <h2 class="text-[34px] xl:text-[42px] font-black font-display leading-tight text-white mb-6 tracking-[-0.02em]">
+          Your Strategic Partner<br>for Global Growth
+        </h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-9">
+          Our philosophy is to empower global economic growth by acting as your trusted partner. We navigate international market complexities to drive your sustainable expansion. By turning trade challenges into actionable plans, we identify which markets are truly worth entering. We provide expert clarity to ensure your operations remain fully compliant, legal, and profitable.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">
+          Our story
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="bg-[#0A1228] px-10 xl:px-14 py-16 rv" style="transition-delay:.12s">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-7">Our Positioning</p>
+        <div>
+          <a href="#svc-strategy" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Market Entry &amp; Company Formation</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+          <a href="#svc-masterclasses" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Strategic Partnerships &amp; Supply Chain</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+          <a href="#svc-tools" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Trade Compliance &amp; Consulting</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+          <a href="#svc-peer" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Financial Infrastructure &amp; Taxes</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+          <a href="#svc-events-detail" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Live Events &amp; Meetups</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+          <a href="#svc-networking" class="svc text-[14px] font-semibold text-white/82 font-display"><span>Community Networking</span><span class="arr text-[#C9A84C] font-bold">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EXPANSION PATH CHOOSER ═══════════════════════ -->
+<section class="bg-[#07091C] border-t border-white/[0.06] py-14">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="text-center mb-10 rv">
+      <p class="text-[11px] tracking-[.22em] text-[#C9A84C]/70 uppercase font-semibold font-display mb-4">Choose Your Expansion Path</p>
+      <h2 class="text-[28px] xl:text-[34px] font-black font-display text-white tracking-[-0.02em]">Which path describes you best?</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 rv" style="transition-delay:.1s">
+      <!-- Path 1 -->
+      <a href="#svc-strategy" class="group relative overflow-hidden border border-white/[0.09] bg-[#0D1530] p-8 hover:border-[#C9A84C]/40 hover:bg-[#0d1a3a] transition-all duration-300 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">
+        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(ellipse at top right,rgba(201,168,76,.07) 0%,transparent 70%)"></div>
+        <div class="flex items-center gap-2 mb-5">
+          <div class="gdot"></div>
+          <span class="text-[10px] tracking-[.18em] text-[#C9A84C]/60 uppercase font-semibold font-display">For Digital Businesses</span>
+        </div>
+        <h3 class="text-[22px] font-black font-display text-white leading-tight mb-3 tracking-[-0.02em]">Tech Startups, Agencies<br>&amp; Solopreneurs</h3>
+        <p class="text-[13px] text-white/45 leading-[1.75] mb-7">Incorporate your U.S. entity, open a bank account remotely, and protect your IP — without the legal headaches.</p>
+        <div class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#07091C] bg-[#C9A84C] px-6 py-3 group-hover:bg-[#E8CC7A] transition-colors">
+          Start Your U.S. Entity
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Path 2 -->
+      <a href="#svc-masterclasses" class="group relative overflow-hidden border border-white/[0.09] bg-[#0A1228] p-8 hover:border-[#C9A84C]/40 hover:bg-[#0d1830] transition-all duration-300 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">
+        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none" style="background:radial-gradient(ellipse at top right,rgba(201,168,76,.07) 0%,transparent 70%)"></div>
+        <div class="flex items-center gap-2 mb-5">
+          <div class="gdot"></div>
+          <span class="text-[10px] tracking-[.18em] text-[#C9A84C]/60 uppercase font-semibold font-display">For Physical Goods Businesses</span>
+        </div>
+        <h3 class="text-[22px] font-black font-display text-white leading-tight mb-3 tracking-[-0.02em]">Manufacturers, Exporters<br>&amp; Supply Chain Leaders</h3>
+        <p class="text-[13px] text-white/45 leading-[1.75] mb-7">Build resilient supply chains, navigate tariffs, and secure pre-screened B2B partnerships to scale into the U.S. market.</p>
+        <div class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-white border border-[#C9A84C]/50 px-6 py-3 group-hover:bg-[#C9A84C]/10 transition-colors">
+          Plan Your U.S. Expansion
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SERVICE DETAIL SECTIONS ═══════════════════════ -->
+
+<!-- 1. Market Entry & Company Formation -->
+<section id="svc-strategy" class="py-20 bg-[#0A1228] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Market Entry &amp; Company Formation</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">Starting a business in the U.S. can be hard. We make it simple for tech startups, agencies, and solopreneurs. Seamlessly incorporate your U.S. entity (LLC or C-Corp) to invoice U.S. clients, open commercial bank accounts remotely, and secure your intellectual property—without the legal headaches.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Choosing the Right Business Structure</div><div class="text-[12px] text-white/45 leading-relaxed">Selecting between a C-corporation and an LLC based on specific long-term goals.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Step-by-Step Entity Setup</div><div class="text-[12px] text-white/45 leading-relaxed">Select State, Appoint Registered Agent, File Articles, Obtain EIN.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Critical Immigration &amp; Visa Pathways</div><div class="text-[12px] text-white/45 leading-relaxed">Navigating options like the E-2 Treaty Investor visa for capital investments or the L-1 Intracompany Transferee visa for managers and executives.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Local Office Set-up (Subsidiary vs. Branch)</div><div class="text-[12px] text-white/45 leading-relaxed">Deciding whether to open a separate legal subsidiary to silo liability or a branch office as a direct extension of the foreign parent company.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Strategic Partnerships & Supply Chain -->
+<section id="svc-masterclasses" class="py-20 bg-[#07091C] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Strategic Partnerships &amp; Supply Chain</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">Finding the right international buyers, distributors, and reliable suppliers is the key to accelerating your market penetration. Our team drives your growth through high-value B2B matchmaking, strategic trade show representation, and resilient supplier development. Stop guessing and start connecting with pre-vetted, high-quality commercial partners.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">High-Value Business Matchmaking</div><div class="text-[12px] text-white/45 leading-relaxed">Facilitating one-on-one appointments with pre-screened potential buyers, agents, distributors, or joint venture partners to accelerate market penetration.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Sourcing &amp; Supplier Development</div><div class="text-[12px] text-white/45 leading-relaxed">Utilizing sourcing agents and local expertise to identify cost-effective supply sources and cultivate strong, reliable supplier relationships.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Strategic Trade Show Presence</div><div class="text-[12px] text-white/45 leading-relaxed">Planning and executing participation in major industry expos like CES, IBS/KBS, WOC, NHS to engage directly with potential partners and assess product quality.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Supply Chain Resilience &amp; Redesign</div><div class="text-[12px] text-white/45 leading-relaxed">Optimizing logistics through vendor diversification, strategic nearshoring, and the utilization of Foreign-Trade Zones (FTZ) to proactively mitigate cross-border supply chain vulnerabilities.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Trade Compliance & Consulting -->
+<section id="svc-tools" class="py-20 bg-[#0A1228] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Trade Compliance &amp; Consulting</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">Navigating global trade laws is complex. Customs audits can be costly. We protect your profit margins. We provide expert guidance on HS classification and FTA qualifications. We also conduct rigorous sanctions screening. We secure your supply chain against compliance risks. We build a solid documentation infrastructure to prevent record-breaking fines. Keep your cross-border operations audit-ready and legally protected.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Navigating Escalating Regulatory Complexity</div><div class="text-[12px] text-white/45 leading-relaxed">Ensuring compliance with over 120 new export control measures and strictly enforced sanctions regimes covering thousands of designated entities.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Tariff &amp; Duty Advisory</div><div class="text-[12px] text-white/45 leading-relaxed">Providing technical guidance on HS classification and Free Trade Agreement (FTA) qualification to model true landed costs and protect margins.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Audit Readiness &amp; Sanctions Screening</div><div class="text-[12px] text-white/45 leading-relaxed">Building the documentation infrastructure and internal controls necessary to pass customs audits and avoid record-breaking trade fines.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Supply Chain Redesign</div><div class="text-[12px] text-white/45 leading-relaxed">Optimizing logistics through diversification, nearshoring, and the utilization of Foreign-Trade Zones (FTZ).</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Financial Infrastructure & Taxes -->
+<section id="svc-peer" class="py-20 bg-[#07091C] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Financial Infrastructure &amp; Taxes</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">Opening a U.S. bank account is tough for foreign owners. We help you clear these banking hurdles remotely. We handle your U.S. tax filings and "Effectively Connected Income" (ECI) requirements so you can focus entirely on growing your business, not decoding IRS tax forms. Book a strategy call today to structure your cross-border financials simply.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">U.S. Federal and State Tax Planning</div><div class="text-[12px] text-white/45 leading-relaxed">Managing "Effectively Connected Income" (ECI) and withholding requirements while navigating the complex check-the-box tax classification rules.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Banking &amp; Financial Transaction Setup</div><div class="text-[12px] text-white/45 leading-relaxed">Overcoming the challenge of opening U.S. business accounts by ensuring compliance with FATCA and Anti-Money Laundering (AML) laws.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Federal &amp; State Investment Incentives</div><div class="text-[12px] text-white/45 leading-relaxed">Identifying and securing valuable tax credits, cash grants, and job training programs to offset material capital investments and startup costs.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Cross-Border Financing &amp; Capital Strategy</div><div class="text-[12px] text-white/45 leading-relaxed">Structuring U.S. operations through an optimized mix of debt and equity while ensuring compliance with U.S. transfer pricing principles and capital market regulations.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Live Events & Meetups -->
+<section id="svc-events-detail" class="py-20 bg-[#0A1228] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Live Events &amp; Meetups</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">We organize guided trade show visits and small local gatherings to help you confidently explore the U.S. market and meet trusted business partners face-to-face.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">U.S. Trade Show Support</div><div class="text-[12px] text-white/45 leading-relaxed">We help you attend U.S. trade shows. Events like CES are great for meeting local partners. We guide you through the process. You can show your products in person.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">B2B Matchmaking</div><div class="text-[12px] text-white/45 leading-relaxed">We arrange direct meetings for you. You will meet local U.S. buyers and distributors. We check their backgrounds first. This helps you find safe business partners.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">U.S. Entry Bootcamps</div><div class="text-[12px] text-white/45 leading-relaxed">We run simple training camps. They teach you how the U.S. market works. You will learn about visas, taxes, and local rules. This prepares your team for a smooth start.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#07091C]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Local Investment Tours</div><div class="text-[12px] text-white/45 leading-relaxed">We plan small group tours in the U.S. You will meet local economic agencies. They offer grants and support for foreign businesses. We help you find the right state for your budget.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Community Networking -->
+<section id="svc-networking" class="py-20 bg-[#07091C] border-t border-white/[0.06]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">What We Offer</p>
+        <h2 class="text-[36px] xl:text-[44px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">Community Networking</h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-8 max-w-[460px]">We connect you with a welcoming network of fellow founders, market experts, and reliable suppliers to share practical advice for your U.S. expansion.</p>
+        <a href="#community" class="inline-flex items-center gap-2 text-[13px] font-bold font-display text-[#C9A84C] hover:text-[#E8CC7A] transition-colors">← Back to all services</a>
+      </div>
+      <div class="rv space-y-3" style="transition-delay:.12s">
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Founders Network</div><div class="text-[12px] text-white/45 leading-relaxed">We connect small business owners and investors. You can meet others entering the U.S. market. Share your tips and learn from their mistakes. It is a helpful and friendly group.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Trusted Supplier Hub</div><div class="text-[12px] text-white/45 leading-relaxed">We run a secure digital group. It links you to trusted suppliers. Every factory is checked for quality. This keeps your supply chain safe and simple.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Trade Rules Group</div><div class="text-[12px] text-white/45 leading-relaxed">U.S. trade rules change often. Our group helps you stay updated. You can ask questions about customs or tariffs. Members share easy ways to handle paperwork.</div></div></div>
+        <div class="flex items-start gap-4 p-5 border border-white/[0.07] bg-[#0A1228]"><span class="gdot mt-1.5"></span><div><div class="text-[13px] font-bold text-white font-display mb-1">Alumni Network</div><div class="text-[12px] text-white/45 leading-relaxed">We link you with past clients. Many used our soft-landing programs. They know how to start small in the U.S. Connect with them for real, practical advice.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ MEMBER WINS ═══════════════════════ -->
+<section class="py-16 bg-[#07091C]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="flex items-center justify-between mb-10 rv">
+      <h2 class="text-[26px] font-black font-display text-white tracking-[-0.02em]">Client Wins</h2>
+      <div class="flex gap-3">
+        <button class="s-arr" aria-label="Previous"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <button class="s-arr" aria-label="Next"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="flex gap-5 overflow-x-auto no-sb pb-2 snap-x snap-mandatory">
+      <div class="o-card snap-start rv" style="background:linear-gradient(135deg,#0c1830,#1a2e50)">
+        <div class="overlay">
+          <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/70 uppercase mb-2 font-semibold font-display">SPEED TO MARKET</div>
+          <div class="text-[50px] font-black font-display text-[#C9A84C] leading-none mb-2">3×</div>
+          <p class="text-[12px] text-white/65 leading-snug">Faster U.S. entity setup and market launch using our structured roadmap and verified local partners.</p>
+        </div>
+      </div>
+      <div class="o-card snap-start rv" style="transition-delay:.08s;background:linear-gradient(135deg,#141e38,#0c1828)">
+        <div class="overlay">
+          <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/70 uppercase mb-2 font-semibold font-display">FIRST PARTNERSHIP</div>
+          <div class="text-[50px] font-black font-display text-[#C9A84C] leading-none mb-2">60</div>
+          <p class="text-[12px] text-white/65 leading-snug">Days — average time for our clients to secure their first pre-screened B2B meeting in the U.S. market.</p>
+        </div>
+      </div>
+      <div class="o-card snap-start rv" style="transition-delay:.16s;background:linear-gradient(135deg,#0e1c30,#1a3050)">
+        <div class="overlay">
+          <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/70 uppercase mb-2 font-semibold font-display">COST EFFICIENCY</div>
+          <div class="text-[50px] font-black font-display text-[#C9A84C] leading-none mb-2">40%</div>
+          <p class="text-[12px] text-white/65 leading-snug">Average reduction in operational overhead through optimized supply chain design and strategic tax planning.</p>
+        </div>
+      </div>
+      <div class="o-card snap-start rv" style="transition-delay:.24s;background:linear-gradient(135deg,#0d1c2e,#162840)">
+        <div class="overlay">
+          <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/70 uppercase mb-2 font-semibold font-display">Career Impact</div>
+          <div class="text-[50px] font-black font-display text-[#C9A84C] leading-none mb-2">$50K</div>
+          <p class="text-[12px] text-white/65 leading-snug">Average salary premium for members who leverage AIS skills and network in career moves</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHO'S IN THE COMMUNITY ═══════════════════════ -->
+<section id="events" class="py-20 bg-[#0D1530]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="rv">
+        <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">Our Network</p>
+        <h2 class="text-[36px] xl:text-[46px] font-black font-display text-white leading-tight mb-6 tracking-[-0.02em]">
+          A network built<br>for global<br>expansion
+        </h2>
+        <p class="text-[14px] text-white/50 leading-[1.85] mb-10 max-w-[420px]">
+          Join a curated network of tech founders, agency owners, operations leaders, and solopreneurs who are successfully scaling their operations in the U.S. market. Our network shares one conviction: vetted partnerships and localized expertise are the keys to cross-border success.
+        </p>
+        <div class="grid grid-cols-2 gap-x-6">
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Founders &amp; Entrepreneurs</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Operations Leaders</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Tech Professionals</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Consultants &amp; Freelancers</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Marketing Professionals</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Product Managers</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Agency Owners</div>
+          <div class="flex items-center gap-2.5 py-3.5 border-b border-white/[0.07] text-[13px] font-semibold text-white/72 hover:text-[#C9A84C] cursor-pointer transition-colors font-display"><span class="gdot"></span>Solopreneurs</div>
+        </div>
+      </div>
+      <div class="rv space-y-4" style="transition-delay:.15s">
+        <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#121e38,#0c1828);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.12)">
+          <div class="text-center p-8">
+            <div style="font-size:11px;letter-spacing:.2em;color:rgba(201,168,76,.5);text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:16px">Upcoming Event</div>
+            <div style="font-size:28px;font-weight:800;color:rgba(255,255,255,.9);line-height:1.2;font-family:'Inter',sans-serif">U.S. Market Entry<br>Bootcamp 2026</div>
+            <div style="font-size:13px;color:rgba(201,168,76,.7);margin-top:12px;font-family:'DM Sans',sans-serif">July 14–16 · Virtual + In-Person</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div style="aspect-ratio:1;background:linear-gradient(135deg,#161e38,#0d1528);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.1);padding:24px">
+            <div style="font-size:34px;font-weight:800;color:#C9A84C;font-family:'Inter',sans-serif;line-height:1">24</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;text-align:center;letter-spacing:.1em;text-transform:uppercase;font-family:'DM Sans',sans-serif">B2B Matchmaking<br>forums this quarter</div>
+          </div>
+          <div style="aspect-ratio:1;background:linear-gradient(135deg,#0c1a30,#141e38);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.1);padding:24px">
+            <div style="font-size:34px;font-weight:800;color:#C9A84C;font-family:'Inter',sans-serif;line-height:1">12</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;text-align:center;letter-spacing:.1em;text-transform:uppercase;font-family:'DM Sans',sans-serif">Expert sessions<br>this month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ RESOURCES ═══════════════════════ -->
+<section id="resources" class="py-16 bg-[#07091C]">
+  <div class="max-w-[1380px] mx-auto px-6">
+    <div class="flex items-center justify-between mb-10 rv">
+      <h2 class="text-[26px] font-black font-display text-white tracking-[-0.02em]">Resources</h2>
+      <div class="flex gap-3">
+        <button class="s-arr" aria-label="Previous"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <button class="s-arr" aria-label="Next"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="ins-card cursor-pointer rv">
+        <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#0d1e38,#182c50);border:1px solid rgba(201,168,76,.1);overflow:hidden;margin-bottom:16px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:28px">
+          <div style="font-size:10px;letter-spacing:.15em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:10px;font-weight:600;font-family:'Inter',sans-serif">Playbook</div>
+          <div style="font-size:20px;font-weight:800;color:#fff;line-height:1.2;font-family:'Inter',sans-serif">The Complete U.S. Market<br>Entry Blueprint 2026</div>
+        </div>
+        <div class="text-[10px] tracking-[.15em] text-[#C9A84C]/55 uppercase mb-2 font-semibold font-display">Guide</div>
+        <h3 class="text-[15px] font-bold text-white/88 leading-snug mb-3">Every legal entity, tax framework, and compliance step you need to establish and scale your U.S. operations flawlessly.</h3>
+        <a href="#" class="text-[12px] font-bold font-display text-[#C9A84C] hover:text-white transition-colors inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">Read more →</a>
+      </article>
+      <article class="ins-card cursor-pointer rv" style="transition-delay:.1s">
+        <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#182638,#0d1c30);border:1px solid rgba(201,168,76,.1);overflow:hidden;margin-bottom:16px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:28px">
+          <div style="font-size:10px;letter-spacing:.15em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:10px;font-weight:600;font-family:'Inter',sans-serif">Masterclass</div>
+          <div style="font-size:20px;font-weight:800;color:#fff;line-height:1.2;font-family:'Inter',sans-serif">Cross-Border Trade &amp;<br>Customs Compliance</div>
+        </div>
+        <div class="text-[10px] tracking-[.15em] text-[#C9A84C]/55 uppercase mb-2 font-semibold font-display">Video Series</div>
+        <h3 class="text-[15px] font-bold text-white/88 leading-snug mb-3">A 6-part deep dive into navigating global tariffs, OFAC sanctions, and building audit-ready supply chains without the guesswork.</h3>
+        <a href="#" class="text-[12px] font-bold font-display text-[#C9A84C] hover:text-white transition-colors inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">Read more →</a>
+      </article>
+      <article class="ins-card cursor-pointer rv" style="transition-delay:.2s">
+        <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#0f1c30,#182840);border:1px solid rgba(201,168,76,.1);overflow:hidden;margin-bottom:16px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:28px">
+          <div style="font-size:10px;letter-spacing:.15em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:10px;font-weight:600;font-family:'Inter',sans-serif">Research</div>
+          <div style="font-size:20px;font-weight:800;color:#fff;line-height:1.2;font-family:'Inter',sans-serif">State of Global Sourcing &amp;<br>Supply Chain Report 2026</div>
+        </div>
+        <div class="text-[10px] tracking-[.15em] text-[#C9A84C]/55 uppercase mb-2 font-semibold font-display">Report</div>
+        <h3 class="text-[15px] font-bold text-white/88 leading-snug mb-3">How 1,200 global founders and agencies are scaling in the U.S. — entity setups, banking, and growth trends.</h3>
+        <a href="#" class="text-[12px] font-bold font-display text-[#C9A84C] hover:text-white transition-colors inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C]">Read more →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ JOIN CTA ═══════════════════════ -->
+<section id="join" class="cta-bg py-24 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 65% 50%,rgba(201,168,76,.1) 0%,transparent 65%)"></div>
+  <div class="absolute right-[-80px] bottom-[-100px] w-[480px] h-[480px] pointer-events-none opacity-[.1]">
+    <div style="width:100%;height:100%;border-radius:50%;position:relative;background:conic-gradient(from 0deg,#1a3060,#c9a84c,#e8cc80,#1a3060)">
+      <div style="position:absolute;inset:26%;background:#0a1228;border-radius:50%"></div>
+    </div>
+  </div>
+  <div class="max-w-[1380px] mx-auto px-6 relative z-10">
+    <div class="max-w-[680px] rv">
+      <p class="text-[11px] tracking-[.2em] text-[#C9A84C]/60 uppercase font-semibold font-display mb-5">Join the Global Network</p>
+      <h2 class="font-black font-display leading-none tracking-[-0.03em] mb-7">
+        <span class="block text-[52px] xl:text-[64px] text-white">Start Your U.S.</span>
+        <span class="block text-[52px] xl:text-[64px] text-[#C9A84C]">Expansion Today.</span>
+      </h2>
+      <p class="text-[15px] text-white/50 leading-[1.8] mb-10 max-w-[480px]">
+        Membership is free. Get instant access to our U.S. market entry playbooks, verified sourcing hubs, and upcoming cross-border events. No credit card required.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="mailto:hello@aiautomationsociety.com" class="bg-[#C9A84C] text-[#07091C] font-bold font-display text-[14px] px-8 py-4 hover:bg-[#E8CC7A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:bg-[#9E7D2C]">Apply to Join the Network</a>
+        <a href="#resources" class="border border-white/25 text-white font-bold font-display text-[14px] px-8 py-4 hover:border-[#C9A84C]/50 hover:bg-[#C9A84C]/5 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 active:bg-white/10">Browse Resources</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="max-w-[1380px] mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-14">
+
+      <div class="col-span-2 md:col-span-3 lg:col-span-1">
+        <div class="mb-5">
+          <img src="Brand_Assets/aera-logo.png" style="height:34px;width:auto;display:block" alt="AERA">
+        </div>
+        <p class="text-[12px] text-white/35 leading-relaxed mb-5">The premier community for U.S. market entry and global supply chain practitioners.</p>
+        <div class="flex gap-2.5">
+          <a href="#" aria-label="LinkedIn" class="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-[#C9A84C] hover:border-[#C9A84C]/40 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:scale-95">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="X" class="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-[#C9A84C] hover:border-[#C9A84C]/40 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:scale-95">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:text-[#C9A84C] hover:border-[#C9A84C]/40 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A84C] active:scale-95">
+            <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#07091C"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/50 uppercase font-semibold font-display mb-5">Community</div>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">About AERA</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Partner Directory</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Verified Sourcing Hub</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Newsletter</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Peer Advisory Network</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/50 uppercase font-semibold font-display mb-5">Learning</div>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Expert Masterclasses</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Compliance Templates</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Market Entry Playbooks</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Trade Tool Reviews</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">U.S. Entry Bootcamps</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/50 uppercase font-semibold font-display mb-5">Events</div>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Upcoming Events</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Market Entry Summit 2026</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">B2B Matchmaking Forums</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Trade Show Delegations</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Strategy Office Hours</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[10px] tracking-[.16em] text-[#C9A84C]/50 uppercase font-semibold font-display mb-5">Company</div>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Blog</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Strategic Partnerships</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Press</a></li>
+          <li><a href="#" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Global Locations</a></li>
+          <li><a href="#join" class="text-[13px] text-white/55 hover:text-[#C9A84C] transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.06] pt-7 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-[12px] text-white/25">A New Era Of Global Business Growth - AERA LLC. All rights reserved.</div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-[12px] text-white/25 hover:text-white/55 transition-colors">Privacy Policy</a>
+        <a href="#" class="text-[12px] text-white/25 hover:text-white/55 transition-colors">Terms of Service</a>
+        <a href="#" class="text-[12px] text-white/25 hover:text-white/55 transition-colors">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottom = window.scrollY > 20 ? '1px solid rgba(201,168,76,.1)' : 'none';
+}, { passive: true });
+
+if (location.search.includes('noreveal')) {
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('on'));
+}
+</script>
+</body>
+</html>

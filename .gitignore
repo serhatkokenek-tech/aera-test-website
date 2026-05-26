@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.claude/
+reference_website_design.png
+www.sutherlandglobal.com_.png
+Brand_Assets/Temporary_screenshots
+screenshot.mjs
+serve.mjs
+trigger-mcp.json
+trigger-ref.md
+trigger_CLAUDE.md
+CLAUDE.md
+CLAUDE_Webdesign.md
